@@ -87,13 +87,16 @@ public class BoardService {
                     }
                 }
             }
-            playerPos.put(player,updatedPos);
-
-            if(updatedPos==100)
+            if(updatedPos>100)
+            {
+                updatedPos=playerPos.get(player);
+            }
+            else if(updatedPos==100)
             {
                 System.out.println("\n\n\n\n\n"+player.getName()+" has won the game \n\n\n\n\n");
                 winner=true;
             }
+            playerPos.put(player,updatedPos);
             turn.add(player);
         }
         System.out.println("Game over!!!");
